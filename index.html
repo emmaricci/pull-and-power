@@ -1,0 +1,1492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A ten-week, five-day training block for pull-up strength, vertical jump and speed.">
+<meta name="theme-color" content="#F6F0E2">
+<style>
+  /* minimal reset — the claude.ai host normally supplies this */
+  :root{
+    color-scheme:light;
+    padding-top:env(safe-area-inset-top, 0px);
+    padding-bottom:env(safe-area-inset-bottom, 0px);
+  }
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none !important}
+</style>
+<title>Pull &amp; Power</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Petit+Formal+Script&display=swap">
+
+<style>
+/* ============================================================
+   TOKENS
+   Single committed palette: oxblood on cream, near-black foil.
+   Every color painted explicitly so the page holds on any host
+   ground (the viewer paints its own background behind us).
+   ============================================================ */
+:root{
+  --oxblood:      #6B1B24;
+  --oxblood-deep: #4A1118;
+  --oxblood-soft: #8E3A41;
+  --cream:        #F6F0E2;
+  --cream-2:      #EDE3CE;
+  --cream-3:      #E2D5BA;
+  --ink:          #14110F;
+  --ink-2:        #221C18;
+  --ink-line:     #332A25;
+  --muted:        #7C6B57;
+  --muted-dark:   #B7A78F;
+  --rose:         #C4888A;
+  --green:        #7E9A6B;   /* completion only — never an accent */
+
+  --display: "Bodoni Moda", "Didot", "Playfair Display", Georgia, serif;
+  --body:    "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
+  --script:  "Petit Formal Script", "Snell Roundhand", cursive;
+
+  /* rounding scale — every rectangle on the page draws from this */
+  --r-sm:   10px;
+  --r-md:   16px;
+  --r-lg:   24px;
+  --r-xl:   32px;
+  --r-pill: 999px;
+
+  --maxw: 1080px;
+  --gutter: clamp(18px, 5vw, 56px);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--oxblood);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.shell{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+
+.eyebrow{
+  font-family:var(--script);
+  font-size:clamp(20px,3.4vw,30px);
+  color:var(--oxblood-soft);
+  line-height:1;margin:0 0 10px;font-weight:400;
+}
+.label{
+  font-family:var(--body);
+  font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);margin:0;
+}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+p{margin:0}
+
+/* ================= HERO ================= */
+.hero{padding-block:clamp(40px,7vw,78px) clamp(28px,5vw,48px);border-bottom:1px solid var(--cream-3)}
+.hero-top{
+  display:flex;flex-wrap:wrap;gap:14px 28px;
+  align-items:baseline;justify-content:space-between;
+  margin-bottom:clamp(26px,5vw,48px);
+}
+.wordmark{
+  font-family:var(--body);font-size:12px;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--oxblood);
+}
+.hero-title{
+  font-size:clamp(50px,13.5vw,148px);
+  line-height:.86;letter-spacing:-.015em;color:var(--oxblood);margin:0;
+}
+.hero-title em{font-style:italic;font-weight:500}
+.hero-rule{height:1px;background:var(--cream-3);margin-block:clamp(26px,4.5vw,42px)}
+
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,44px)}
+.goal{display:flex;flex-direction:column;gap:8px}
+.goal-num{
+  font-family:var(--display);font-size:clamp(28px,4.4vw,46px);
+  font-style:italic;line-height:1;color:var(--oxblood-soft);
+}
+.goal p{font-size:14.5px;line-height:1.55;color:var(--oxblood)}
+@media (max-width:720px){
+  .goals{grid-template-columns:1fr;gap:20px}
+  .goal{flex-direction:row;align-items:flex-start;gap:14px}
+  .goal-num{flex:0 0 auto}
+}
+
+/* ================= VITALS ================= */
+.vitals{padding-block:clamp(22px,3.4vw,34px)}
+.vitals-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.vital{
+  background:var(--cream-2);
+  border:1px solid var(--cream-3);
+  border-radius:var(--r-lg);
+  padding:clamp(16px,2.6vw,26px) clamp(14px,2.2vw,22px);
+  display:flex;flex-direction:column;gap:5px;
+}
+.vital-fig{
+  font-family:var(--display);font-size:clamp(30px,5vw,50px);
+  line-height:1;color:var(--oxblood);font-variant-numeric:tabular-nums;
+}
+.vital-fig span{font-size:.44em;font-style:italic;margin-left:3px}
+@media (max-width:640px){.vitals-inner{grid-template-columns:repeat(2,1fr)}}
+
+/* ================= RHYTHM ================= */
+.rhythm{padding-block:clamp(30px,5vw,60px)}
+.rhythm-head{max-width:34ch;margin-bottom:clamp(24px,4vw,40px)}
+.rhythm-head h2{font-size:clamp(30px,5.4vw,56px);line-height:1.02;letter-spacing:-.01em;margin-top:10px}
+.rhythm-head h2 em{font-style:italic}
+.rhythm-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.rhythm-note{font-size:16px;line-height:1.65;color:var(--oxblood);max-width:46ch}
+.rhythm-note + .rhythm-note{margin-top:14px}
+.rhythm-note strong{font-weight:600}
+
+.cadence{display:flex;flex-direction:column;gap:10px}
+.cad-row{display:grid;grid-template-columns:54px 1fr;align-items:center;gap:14px}
+.cad-day{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cad-track{
+  position:relative;height:34px;
+  background:var(--cream-2);border:1px solid var(--cream-3);
+  border-radius:var(--r-pill);display:flex;align-items:center;overflow:hidden;
+}
+.cad-fill{
+  height:100%;display:flex;align-items:center;padding-inline:14px;
+  border-radius:var(--r-pill);
+  font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;white-space:nowrap;
+}
+.cad-fill.is-high{background:var(--oxblood);color:var(--cream);width:100%}
+.cad-fill.is-mod{background:var(--oxblood-soft);color:var(--cream);width:62%}
+.cad-fill.is-low{background:var(--rose);color:var(--oxblood-deep);width:34%}
+@media (max-width:820px){.rhythm-grid{grid-template-columns:1fr}}
+
+/* ================= MARQUEE ================= */
+.marquee{
+  overflow:hidden;border-block:1px solid var(--cream-3);
+  background:var(--cream);padding-block:clamp(6px,1.4vw,14px);
+}
+.marquee-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.marquee-track span{
+  font-family:var(--display);font-size:clamp(40px,8.4vw,92px);
+  line-height:1.05;letter-spacing:-.01em;color:var(--oxblood);
+  padding-inline:.28em;white-space:nowrap;
+}
+.marquee-track span em{font-style:italic;color:var(--oxblood-soft)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ================= FOIL (program + log) ================= */
+.foil{background:var(--ink);color:var(--cream);padding-block:clamp(42px,6.5vw,78px)}
+.foil .label{color:var(--muted-dark)}
+.foil-head{margin-bottom:clamp(24px,4vw,38px)}
+.foil-head h2{font-size:clamp(32px,6vw,64px);line-height:1;color:var(--cream);letter-spacing:-.012em;margin-top:6px}
+.foil-head h2 em{font-style:italic;color:var(--rose)}
+.foil-sub{color:var(--muted-dark);font-size:15px;max-width:52ch;margin-top:14px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(22px,3.4vw,32px)}
+.tab{
+  font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted-dark);background:transparent;
+  border:1px solid var(--ink-line);border-radius:var(--r-pill);
+  padding:11px 20px;cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.tab:hover{color:var(--cream);border-color:var(--muted-dark)}
+.tab[aria-selected="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+
+/* selector strips */
+.strip-wrap{overflow-x:auto;margin-bottom:6px;padding:2px 2px 6px}
+.strip{display:flex;gap:8px;min-width:max-content}
+.chip{
+  flex:0 0 auto;min-width:80px;
+  background:var(--ink-2);border:1px solid var(--ink-line);
+  border-radius:var(--r-md);color:var(--cream);
+  padding:12px 14px;cursor:pointer;text-align:left;
+  font-family:var(--body);display:flex;flex-direction:column;gap:4px;
+  transition:border-color .18s,background .18s;
+}
+.chip:hover{border-color:var(--muted-dark)}
+.chip-n{font-family:var(--display);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+.chip-t{font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark)}
+.chip[aria-selected="true"]{background:var(--oxblood);border-color:var(--oxblood-soft)}
+.chip[aria-selected="true"] .chip-t{color:var(--rose)}
+.chip.is-deload[aria-selected="true"]{background:#3E2F2A;border-color:#5C4740}
+.chip.is-taper[aria-selected="true"]{background:#40343F;border-color:#61505F}
+.chip-dot{
+  position:absolute;
+}
+.chip{position:relative}
+.chip.is-done::after{
+  content:"";position:absolute;top:9px;right:10px;
+  width:7px;height:7px;border-radius:50%;background:var(--green);
+}
+
+.meta-line{
+  display:flex;flex-wrap:wrap;gap:6px 18px;
+  font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted-dark);
+  padding-block:16px 20px;border-bottom:1px solid var(--ink-line);margin-bottom:22px;
+}
+.meta-line b{color:var(--cream);font-weight:600}
+
+/* session panel */
+.session-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.session-head h3{font-size:clamp(24px,4.4vw,40px);line-height:1.04;color:var(--cream)}
+.session-head h3 em{font-style:italic;color:var(--rose)}
+.pill{
+  flex:0 0 auto;font-size:10px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;padding:6px 14px;border-radius:var(--r-pill);
+}
+.pill.is-high{background:var(--oxblood);color:var(--cream)}
+.pill.is-mod{background:var(--ink-line);color:var(--rose)}
+.pill.is-low{background:var(--rose);color:var(--ink)}
+.session-focus{color:var(--muted-dark);font-size:14.5px;max-width:56ch;margin-bottom:26px}
+
+.blocks{display:flex;flex-direction:column;gap:26px}
+.block-head{
+  display:flex;align-items:baseline;gap:12px;
+  padding-bottom:9px;margin-bottom:14px;border-bottom:1px solid var(--ink-line);
+}
+.block-head .label{color:var(--rose);letter-spacing:.2em}
+.block-dur{font-size:11px;color:var(--muted-dark);letter-spacing:.1em}
+
+.list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.list li{
+  background:var(--ink-2);border:1px solid var(--ink-line);
+  border-radius:var(--r-pill);padding:9px 16px;font-size:13.5px;color:var(--cream);
+}
+
+.moves{display:flex;flex-direction:column;gap:8px}
+.move{
+  background:var(--ink-2);border:1px solid var(--ink-line);
+  border-radius:var(--r-md);
+  display:grid;grid-template-columns:26px 1fr auto;gap:14px;
+  align-items:baseline;padding:14px 18px;
+}
+.move-b{font-family:var(--display);font-size:13px;font-style:italic;color:var(--rose)}
+.move-n{font-size:15px;color:var(--cream);line-height:1.35}
+.move-note{display:block;font-size:12.5px;color:var(--muted-dark);margin-top:4px;max-width:48ch;line-height:1.45}
+.move-p{
+  font-size:13px;font-weight:500;color:var(--cream);letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;
+}
+.move-p em{
+  display:block;font-style:normal;font-size:11px;color:var(--rose);
+  letter-spacing:.12em;text-transform:uppercase;margin-top:3px;
+}
+@media (max-width:560px){
+  .move{grid-template-columns:22px 1fr;gap:10px}
+  .move-p{grid-column:2;text-align:left;margin-top:6px}
+  .move-p em{display:inline;margin-left:10px}
+}
+
+/* per-exercise entry: what you actually did, under the prescription */
+.move-entry{
+  grid-column:1 / -1;
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:10px;padding-top:12px;
+  border-top:1px dashed var(--ink-line);
+}
+.entry-f{display:flex;align-items:center;gap:9px;flex:1 1 150px;min-width:0}
+.entry-f label{
+  font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted-dark);white-space:nowrap;
+}
+.entry-f input{
+  padding:9px 12px;font-size:13.5px;border-radius:var(--r-sm);
+  min-width:0;flex:1;
+}
+.entry-f input.has-value{border-color:var(--oxblood-soft);color:var(--cream)}
+
+/* mark-session-done control, inside the day header */
+.done-btn{
+  flex:0 0 auto;font-family:var(--body);
+  font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted-dark);background:var(--ink-2);
+  border:1px solid var(--ink-line);border-radius:var(--r-pill);
+  padding:9px 18px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+  transition:color .18s,border-color .18s,background .18s;
+}
+.done-btn:hover{color:var(--cream);border-color:var(--muted-dark)}
+.done-btn .tick{
+  width:16px;height:16px;border-radius:50%;
+  border:1px solid var(--ink-line);background:transparent;
+  display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;
+}
+.done-btn[aria-pressed="true"]{background:var(--oxblood-deep);border-color:var(--oxblood-soft);color:var(--rose)}
+.done-btn[aria-pressed="true"] .tick{background:var(--green);border-color:var(--green);color:var(--ink)}
+
+/* the week this session is being logged against */
+.ctx{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+  margin-bottom:14px;
+}
+.ctx .label{color:var(--rose)}
+
+.aside{
+  border-left:2px solid var(--oxblood-soft);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:4px 0 4px 16px;font-size:14px;line-height:1.6;
+  color:var(--muted-dark);max-width:56ch;
+}
+.aside b{color:var(--cream);font-weight:500}
+
+.dose-wrap{
+  overflow-x:auto;background:var(--ink-2);
+  border:1px solid var(--ink-line);border-radius:var(--r-md);
+  padding:16px 20px 6px;
+}
+.dose{width:100%;border-collapse:collapse;font-size:13.5px}
+.dose caption{
+  text-align:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted-dark);padding-bottom:10px;
+}
+.dose th,.dose td{
+  text-align:left;padding:9px 14px 9px 0;
+  border-bottom:1px solid var(--ink-line);font-variant-numeric:tabular-nums;
+}
+.dose tr:last-child td{border-bottom:none}
+.dose th{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);font-family:var(--body)}
+.dose td{color:var(--cream)}
+.dose td:last-child{font-weight:500}
+
+/* ten-week view */
+.week-note{font-size:15px;line-height:1.65;color:var(--cream);max-width:56ch;margin-bottom:22px}
+.dials{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.dial{
+  background:var(--ink-2);border:1px solid var(--ink-line);border-radius:var(--r-md);
+  display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 18px;align-items:baseline;
+}
+.dial-k{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+.dial-v{font-size:14.5px;color:var(--cream);line-height:1.45}
+@media (max-width:560px){.dial{grid-template-columns:1fr;gap:5px}}
+
+.fork{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.track{
+  background:var(--ink-2);border:1px solid var(--ink-line);border-radius:var(--r-lg);
+  padding:22px;display:flex;flex-direction:column;gap:12px;
+}
+.track.is-primary{border-color:var(--oxblood-soft)}
+.track h4{font-size:18px;line-height:1.2;color:var(--cream)}
+.track h4 em{font-style:italic;color:var(--rose)}
+.track-cond{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.track p{font-size:13.5px;color:var(--muted-dark);line-height:1.55}
+.track .moves .move{background:var(--ink);border-radius:var(--r-sm)}
+@media (max-width:720px){.fork{grid-template-columns:1fr}}
+
+/* test day */
+.tests{display:flex;flex-direction:column;gap:8px}
+.test{
+  background:var(--ink-2);border:1px solid var(--ink-line);border-radius:var(--r-lg);
+  padding:20px;display:grid;grid-template-columns:34px 1fr;gap:14px;
+}
+.test-n{font-family:var(--display);font-size:22px;font-style:italic;color:var(--rose);line-height:1}
+.test h4{font-size:18px;color:var(--cream);margin-bottom:6px}
+.test p{font-size:13.5px;color:var(--muted-dark);line-height:1.55;max-width:52ch}
+.test.is-optional .test-n{color:var(--muted-dark)}
+.standards{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.standards li{font-size:12px;color:var(--cream);border:1px solid var(--ink-line);border-radius:var(--r-pill);padding:6px 14px}
+
+/* ============================================================
+   LOG  — the tracking surface
+   ============================================================ */
+.log-bar{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  justify-content:space-between;margin-bottom:22px;
+}
+.log-io{display:flex;gap:8px}
+.io-btn{
+  font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted-dark);background:var(--ink-2);
+  border:1px solid var(--ink-line);border-radius:var(--r-pill);
+  padding:8px 16px;cursor:pointer;transition:color .18s,border-color .18s;
+}
+.io-btn:hover{color:var(--cream);border-color:var(--muted-dark)}
+.log-status{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted-dark);background:var(--ink-2);
+  border:1px solid var(--ink-line);border-radius:var(--r-pill);
+  padding:7px 15px;
+}
+.log-status .dot{width:7px;height:7px;border-radius:50%;background:var(--muted-dark)}
+.log-status.is-synced .dot{background:var(--green)}
+.log-status.is-local .dot{background:var(--rose)}
+
+.panel{
+  background:var(--ink-2);border:1px solid var(--ink-line);
+  border-radius:var(--r-xl);padding:clamp(18px,3vw,28px);margin-bottom:16px;
+}
+.panel > .label{margin-bottom:16px;color:var(--rose)}
+.panel h4{font-size:20px;color:var(--cream);margin-bottom:6px}
+.panel-sub{font-size:13.5px;color:var(--muted-dark);max-width:54ch;margin-bottom:18px}
+
+/* five session toggles for the selected week */
+.sessions{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.sess{
+  background:var(--ink);border:1px solid var(--ink-line);border-radius:var(--r-md);
+  padding:14px 10px;cursor:pointer;font-family:var(--body);color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  transition:border-color .18s,background .18s;
+}
+.sess:hover{border-color:var(--muted-dark)}
+.sess-d{font-family:var(--display);font-size:19px;line-height:1}
+.sess-t{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-dark);text-align:center}
+.sess-mark{
+  width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--ink-line);background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:transparent;
+}
+.sess[aria-pressed="true"]{background:var(--oxblood-deep);border-color:var(--oxblood-soft)}
+.sess[aria-pressed="true"] .sess-mark{background:var(--green);border-color:var(--green);color:var(--ink)}
+.sess[aria-pressed="true"] .sess-t{color:var(--rose)}
+@media (max-width:560px){
+  .sessions{grid-template-columns:repeat(3,1fr)}
+}
+
+/* numeric entry */
+.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.field .hint{font-size:12px;color:var(--muted-dark);line-height:1.4}
+input[type="number"],input[type="text"],textarea{
+  font-family:var(--body);font-size:15px;color:var(--cream);
+  background:var(--ink);border:1px solid var(--ink-line);
+  border-radius:var(--r-md);padding:12px 15px;width:100%;
+  font-variant-numeric:tabular-nums;
+}
+input::placeholder,textarea::placeholder{color:#6B5C4E}
+input:focus,textarea:focus{outline:2px solid var(--oxblood-soft);outline-offset:1px;border-color:var(--oxblood-soft)}
+textarea{resize:vertical;min-height:74px;line-height:1.5;font-size:14px}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+
+/* weekly totals ledger */
+.ledger{display:flex;flex-direction:column;gap:8px}
+.led{
+  display:grid;grid-template-columns:62px 1fr auto auto;gap:14px;align-items:center;
+  background:var(--ink);border:1px solid var(--ink-line);border-radius:var(--r-md);
+  padding:12px 18px;
+}
+.led-w{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark)}
+.led-phase{font-size:12.5px;color:var(--muted-dark)}
+.led-total{font-family:var(--display);font-size:20px;color:var(--cream);font-variant-numeric:tabular-nums}
+.led-total.is-empty{color:#544639;font-family:var(--body);font-size:13px}
+.led-delta{
+  font-size:11px;font-weight:600;letter-spacing:.08em;
+  border-radius:var(--r-pill);padding:4px 11px;min-width:54px;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.led-delta.up{background:rgba(126,154,107,.16);color:var(--green)}
+.led-delta.down{background:rgba(196,136,138,.14);color:var(--rose)}
+.led-delta.flat{background:var(--ink-2);color:var(--muted-dark)}
+.led-delta.none{background:transparent;color:transparent}
+.led.is-current{border-color:var(--oxblood-soft)}
+@media (max-width:560px){
+  .led{grid-template-columns:52px 1fr auto;gap:10px;padding:12px 14px}
+  .led-phase{display:none}
+}
+
+/* baseline vs test */
+.beforeafter{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ba-col h4{font-size:17px;color:var(--cream);margin-bottom:4px}
+.ba-col .label{margin-bottom:14px}
+.ba-fields{display:flex;flex-direction:column;gap:10px}
+.ba-row{display:grid;grid-template-columns:1fr 96px;gap:12px;align-items:center}
+.ba-row label{font-size:13px;color:var(--cream);letter-spacing:0;text-transform:none;font-weight:400}
+.ba-row .unit{font-size:11px;color:var(--muted-dark);display:block;margin-top:2px}
+.ba-row input{padding:10px 12px;font-size:14px;text-align:right}
+.results{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.res{
+  display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;
+  background:var(--ink);border:1px solid var(--ink-line);border-radius:var(--r-md);
+  padding:12px 18px;
+}
+.res-k{font-size:13.5px;color:var(--cream)}
+.res-v{font-family:var(--display);font-size:18px;color:var(--rose);font-variant-numeric:tabular-nums}
+.res-v.up{color:var(--green)}
+@media (max-width:720px){.beforeafter{grid-template-columns:1fr}}
+
+/* ================= CLOSE ================= */
+.close{padding-block:clamp(40px,6vw,70px);text-align:center}
+.close p{
+  font-family:var(--display);font-size:clamp(22px,4.2vw,40px);
+  line-height:1.2;font-style:italic;color:var(--oxblood);max-width:22ch;margin:0 auto;
+}
+.close .label{margin-top:20px}
+
+:where(button,a,input,textarea):focus-visible{outline:2px solid var(--oxblood-soft);outline-offset:3px}
+.foil :where(button,input,textarea):focus-visible{outline-color:var(--rose)}
+</style>
+</head>
+<body>
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="shell">
+    <div class="hero-top">
+      <div class="wordmark">Pull &amp; Power</div>
+      <div class="label">Ten-week block &middot; Five days</div>
+    </div>
+    <p class="eyebrow">A block built for</p>
+    <h1 class="hero-title">PULL-UPS,<br><em>VERT</em> &amp; SPEED</h1>
+    <div class="hero-rule"></div>
+    <div class="goals">
+      <div class="goal">
+        <div class="goal-num">i</div>
+        <p>From a handful of strict pull-ups to 10&ndash;12 bodyweight reps, then weighted.</p>
+      </div>
+      <div class="goal">
+        <div class="goal-num">ii</div>
+        <p>More vertical jump, acceleration and lateral explosiveness for volleyball.</p>
+      </div>
+      <div class="goal">
+        <div class="goal-num">iii</div>
+        <p>Overall strength maintained and built, without every session becoming a performance test.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= VITALS ================= -->
+<section class="vitals" aria-label="Block at a glance">
+  <div class="shell">
+    <div class="vitals-inner">
+      <div class="vital"><div class="vital-fig">10</div><p class="label">Weeks</p></div>
+      <div class="vital"><div class="vital-fig">5<span>/wk</span></div><p class="label">Training days</p></div>
+      <div class="vital"><div class="vital-fig">2</div><p class="label">True high-output legs</p></div>
+      <div class="vital"><div class="vital-fig">5</div><p class="label">Tests in week ten</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RHYTHM ================= -->
+<section class="rhythm">
+  <div class="shell">
+    <div class="rhythm-head">
+      <p class="label">The weekly shape</p>
+      <h2>Two hard leg days, <em>not four</em></h2>
+    </div>
+    <div class="rhythm-grid">
+      <div>
+        <p class="rhythm-note">Days 1 and 3 are the true high-output sessions: jumps and heavy lower on one, sprints and horizontal power on the other. Days 2 and 4 sit at moderate, carrying the pull-up work, while Day 5 is steady aerobic work and nothing more.</p>
+        <p class="rhythm-note">The pull-up appears twice a week with different jobs. <strong>Day 2 accumulates clean volume</strong> at roughly half effort; <strong>Day 4 is where strength actually moves</strong>. Running both as hard days is the usual way this block gets wrecked.</p>
+        <p class="rhythm-note">Days 6 and 7 are rest or volleyball, whichever the week needs.</p>
+      </div>
+      <div class="cadence" aria-label="Relative output by day">
+        <div class="cad-row"><div class="cad-day">Day 1</div><div class="cad-track"><div class="cad-fill is-high">High &middot; Jump + heavy lower</div></div></div>
+        <div class="cad-row"><div class="cad-day">Day 2</div><div class="cad-track"><div class="cad-fill is-mod">Moderate &middot; Upper</div></div></div>
+        <div class="cad-row"><div class="cad-day">Day 3</div><div class="cad-track"><div class="cad-fill is-high">High &middot; Sprint + heavy lower</div></div></div>
+        <div class="cad-row"><div class="cad-day">Day 4</div><div class="cad-track"><div class="cad-fill is-mod">Moderate &middot; Pull</div></div></div>
+        <div class="cad-row"><div class="cad-day">Day 5</div><div class="cad-track"><div class="cad-fill is-low">Low &middot; Cardio</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>PULL &middot; <em>JUMP</em> &middot; SPRINT &middot; LIFT &middot;&nbsp;</span>
+    <span>PULL &middot; <em>JUMP</em> &middot; SPRINT &middot; LIFT &middot;&nbsp;</span>
+  </div>
+</div>
+
+<!-- ================= PROGRAM ================= -->
+<section class="foil">
+  <div class="shell">
+    <div class="foil-head">
+      <p class="label">The programming</p>
+      <h2>Every session, <em>every week</em></h2>
+      <p class="foil-sub">Sessions keep the same shape all ten weeks. What changes is the dial settings &mdash; load, reps, intent &mdash; and what you log against them.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Program views">
+      <button class="tab" role="tab" id="tab-week" aria-controls="view-week" aria-selected="true">The week</button>
+      <button class="tab" role="tab" id="tab-plan" aria-controls="view-plan" aria-selected="false">Ten-week plan</button>
+      <button class="tab" role="tab" id="tab-log"  aria-controls="view-log"  aria-selected="false">Log</button>
+      <button class="tab" role="tab" id="tab-test" aria-controls="view-test" aria-selected="false">Test day</button>
+    </div>
+
+    <!-- ---- VIEW: the week ---- -->
+    <div id="view-week" role="tabpanel" aria-labelledby="tab-week">
+      <div class="ctx"><p class="label">Logging against</p></div>
+      <div class="strip-wrap"><div class="strip" id="ctx-week-strip" role="tablist" aria-label="Week being logged"></div></div>
+      <div class="strip-wrap"><div class="strip" id="day-strip" role="tablist" aria-label="Training days"></div></div>
+      <div class="meta-line" id="day-meta"></div>
+      <div id="day-body"></div>
+    </div>
+
+    <!-- ---- VIEW: ten-week plan ---- -->
+    <div id="view-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
+      <div class="strip-wrap"><div class="strip" id="week-strip" role="tablist" aria-label="Weeks"></div></div>
+      <div class="meta-line" id="week-meta"></div>
+      <div id="week-body"></div>
+    </div>
+
+    <!-- ---- VIEW: log ---- -->
+    <div id="view-log" role="tabpanel" aria-labelledby="tab-log" hidden>
+      <div class="log-bar">
+        <div class="log-status" id="log-status"><span class="dot"></span><span id="log-status-text">Connecting</span></div>
+        <div class="log-io">
+          <button class="io-btn" id="btn-export" type="button">Export</button>
+          <button class="io-btn" id="btn-import" type="button">Import</button>
+          <input type="file" id="file-import" accept="application/json,.json" hidden>
+        </div>
+      </div>
+
+      <div class="strip-wrap"><div class="strip" id="log-strip" role="tablist" aria-label="Weeks"></div></div>
+
+      <div class="panel" style="margin-top:16px">
+        <p class="label">Sessions &mdash; <span id="log-week-name">week 1</span></p>
+        <div class="sessions" id="log-sessions"></div>
+      </div>
+
+      <div class="panel">
+        <p class="label">Pull-up totals</p>
+        <p class="panel-sub">Total high-quality reps for the session. That total is the number that has to climb &mdash; not the reps in any single set.</p>
+        <div class="fields">
+          <div class="field">
+            <label for="pu-d2">Day 2 &mdash; volume</label>
+            <input type="number" id="pu-d2" min="0" max="500" step="1" placeholder="—" inputmode="numeric">
+            <span class="hint">Submaximal sets at 50&ndash;70% of max.</span>
+          </div>
+          <div class="field">
+            <label for="pu-d4">Day 4 &mdash; strength</label>
+            <input type="number" id="pu-d4" min="0" max="500" step="1" placeholder="—" inputmode="numeric">
+            <span class="hint">4&ndash;5 sets, 1&ndash;2 reps in reserve.</span>
+          </div>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label for="wk-note">Week note</label>
+          <textarea id="wk-note" placeholder="Sets as they actually went, sleep, anything that explains the number."></textarea>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="label">Weekly pull-up volume</p>
+        <p class="panel-sub">Day 2 plus Day 4, week over week. Deload should dip. Week 9 should be the highest.</p>
+        <div class="ledger" id="ledger"></div>
+      </div>
+
+      <div class="panel">
+        <p class="label">Baseline &amp; test</p>
+        <p class="panel-sub">Record the baseline before week 1. Use the same measurement method in week 10 or the comparison means nothing.</p>
+        <div class="beforeafter">
+          <div class="ba-col">
+            <h4>Before week 1</h4>
+            <div class="ba-fields" id="ba-baseline"></div>
+          </div>
+          <div class="ba-col">
+            <h4>Week 10 test</h4>
+            <div class="ba-fields" id="ba-final"></div>
+          </div>
+        </div>
+        <div class="results" id="ba-results"></div>
+      </div>
+    </div>
+
+    <!-- ---- VIEW: test day ---- -->
+    <div id="view-test" role="tabpanel" aria-labelledby="tab-test" hidden>
+      <div class="session-head">
+        <h3>Week 10 &mdash; <em>test</em></h3>
+        <span class="pill is-low">Fresh</span>
+      </div>
+      <p class="session-focus">Cut volume hard early in the week. You are testing against week one, not against ten weeks of accumulated fatigue. Measurement consistency matters more than sophisticated equipment &mdash; use the same method you used before week one.</p>
+      <div class="tests">
+        <div class="test">
+          <div class="test-n">01</div>
+          <div>
+            <h4>Max strict pull-ups</h4>
+            <p>One set, taken honestly. The standards are what make the number mean anything:</p>
+            <ul class="standards">
+              <li>Dead hang at the bottom</li>
+              <li>No kicking or kipping</li>
+              <li>Chin clearly over the bar</li>
+              <li>Consistent technique throughout</li>
+            </ul>
+          </div>
+        </div>
+        <div class="test">
+          <div class="test-n">02</div>
+          <div><h4>Maximum vertical jump</h4><p>Same measurement method as your pre-week-one baseline, or the comparison is meaningless.</p></div>
+        </div>
+        <div class="test">
+          <div class="test-n">03</div>
+          <div><h4>Approach jump</h4><p>The one that transfers most directly to volleyball.</p></div>
+        </div>
+        <div class="test is-optional">
+          <div class="test-n">04</div>
+          <div><h4>Broad jump <span class="track-cond">Optional</span></h4><p>Horizontal power check. Skip it if the day is already long.</p></div>
+        </div>
+        <div class="test is-optional">
+          <div class="test-n">05</div>
+          <div><h4>10&ndash;20 m acceleration <span class="track-cond">Optional</span></h4><p>Same distance, same surface, same timing method as before.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSE ================= -->
+<footer class="close">
+  <div class="shell">
+    <p>The weighted phase starts when your body is ready for it, not because the calendar says week six.</p>
+    <p class="label">Pull &amp; Power &middot; Ten-week block</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   DATA — edit these two arrays, not the markup.
+   ============================================================ */
+const DAYS = [
+  {
+    n:1, tag:'high', short:'Lower', title:'Lower body', em:'vertical power',
+    focus:'Vertical power plus squat strength. The jumps come first, while you are fresh enough for them to be worth doing.',
+    blocks:[
+      { kind:'list', head:'Warm-up', dur:'8–10 min',
+        note:'Dynamic and progressive, not just raising your heart rate.',
+        items:['2–3 min easy cardio','Leg swings','Ankle rocks','Walking lunges','Bodyweight squats','2–3 progressively higher practice jumps'] },
+      { kind:'moves', head:'Power', dur:'~10 min',
+        moves:[
+          {b:'A',n:'Pogos',p:'2 × 10–15',note:'Quick ground contact. Think springy, not high.'},
+          {b:'B',n:'Max countermovement jump',p:'3 × 3',note:'Reset completely between reps.'},
+          {b:'C',n:'Volleyball approach jump',p:'3 × 2–3',note:'Treat these as true maximum-effort jumps.'}
+        ],
+        aside:'Rest <b>60–120 sec</b> between maximal sets. Stop or cut reps the moment jump height noticeably declines — past that point you are training fatigue, not power.' },
+      { kind:'moves', head:'Strength', dur:'45–50 min',
+        moves:[
+          {b:'A',n:'Back squat',p:'4 × 4–6',rpe:'RPE 7–8'},
+          {b:'B',n:'Hip thrust',p:'3 × 6–8',rpe:'RPE 7–8'},
+          {b:'C',n:'Walking lunge',p:'3 × 8 / leg',rpe:'RPE 7–8'},
+          {b:'D',n:'Calf raise',p:'3 × 10–15',rpe:'Controlled'},
+          {b:'E',n:'Hip abduction',p:'2 × 12–15',rpe:'Optional'}
+        ],
+        aside:'The squat is the main strength movement here. Don\'t let the accessories turn into a second maximal workout.' },
+      { kind:'list', head:'Core', dur:'5 min',
+        note:'Lateral flexion and anti-lateral flexion — 2 rounds.',
+        items:['Side plank dips × 8–12 / side','Side plank hold × 20–30 sec / side','Side plank reach-through × 6–10 / side'] }
+    ]
+  },
+  {
+    n:2, tag:'mod', short:'Push', title:'Upper push', em:'+ pull-up volume',
+    focus:'Pull-ups go first, even though this is technically a push day. The purpose is accumulating high-quality reps, not testing your max.',
+    blocks:[
+      { kind:'list', head:'Warm-up', dur:'5–8 min',
+        items:['Arm circles','Scapular push-ups','Band work if available','1–2 easy push-up sets','Scapular pull-ups'] },
+      { kind:'dose', head:'Pull-up practice', dur:'4–5 sets',
+        lead:'Bodyweight pull-ups, 4–5 submaximal sets at roughly 50–70% of your current max. These should feel clean — do not grind out the final rep.',
+        rows:[['3–4','5 × 2'],['5–6','5 × 3'],['7–8','5 × 4'],['9+','5 × 5']] },
+      { kind:'moves', head:'Upper-body power', dur:'',
+        moves:[{b:'A',n:'Plyometric push-up',p:'3 × 3–5',note:'Drop to kneeling if full reps lose their explosiveness.'}] },
+      { kind:'moves', head:'Strength', dur:'',
+        moves:[
+          {b:'A',n:'Bench press',p:'4 × 5–8',rpe:'RPE 7–8'},
+          {b:'B',n:'Shoulder press',p:'3 × 6–8',rpe:'RPE 7–8'},
+          {b:'C',n:'Chest fly',p:'2–3 × 10–12',rpe:'Moderate'},
+          {b:'D',n:'Triceps extension',p:'2–3 × 10–12',rpe:'Moderate'}
+        ] },
+      { kind:'list', head:'Core', dur:'5 min',
+        note:'Rotation and anti-rotation — 2 rounds.',
+        items:['Plank shoulder taps × 8–12 / side','Bear-plank shoulder taps × 6–10 / side','Side-plank rotation × 6–10 / side'] }
+    ]
+  },
+  {
+    n:3, tag:'high', short:'Speed', title:'Lower body', em:'speed + horizontal power',
+    focus:'The most athletic session of the week. Sprints, bounds and hinge strength.',
+    blocks:[
+      { kind:'list', head:'Warm-up', dur:'8–10 min',
+        items:['Easy jog','A-skips / marching','Leg swings','Walking lunges','Ankling / pogos','2 progressive accelerations'] },
+      { kind:'moves', head:'Speed', dur:'',
+        moves:[{b:'A',n:'10–20 m acceleration sprints',p:'4–6 reps',note:'Rest 1–2+ minutes between efforts.'}],
+        aside:'The pattern you want is <b>fast → recover → fast again</b>. Not sprint → gasp → sprint tired.' },
+      { kind:'moves', head:'Power', dur:'',
+        moves:[
+          {b:'A',n:'Broad jump',p:'3 × 3'},
+          {b:'B',n:'Single-leg bounds',p:'2 × 3 / side'},
+          {b:'C',n:'Lateral bounds',p:'2 × 3–5 / side'}
+        ],
+        aside:'You don\'t need all three every week. Broad jumps plus one bounding variation is plenty.' },
+      { kind:'moves', head:'Strength', dur:'',
+        moves:[
+          {b:'A',n:'Deadlift',p:'3–4 × 3–5',rpe:'RPE 7–8'},
+          {b:'B',n:'Sumo squat or Cossack squat',p:'3 × 6–8',rpe:'Moderate'},
+          {b:'C',n:'Single-leg RDL',p:'3 × 6–10 / leg',rpe:'RPE 7–8'},
+          {b:'D',n:'Leg extension',p:'2–3 × 10–12',rpe:'Moderate'}
+        ],
+        aside:'Favor Cossack squats periodically — they build strength through a more lateral range of motion, which is where volleyball lives.' },
+      { kind:'list', head:'Core', dur:'5 min',
+        note:'Flexion and trunk control — choose 2–3.',
+        items:['Reverse crunch × 10–15','Lying leg raise × 8–12','V-up × 8–12','Dead bug × 8–10 / side','Hollow-body hold × 20–30 sec'] }
+    ]
+  },
+  {
+    n:4, tag:'mod', short:'Pull', title:'Upper pull', em:'pull-up strength',
+    focus:'The primary pull-up progression day. The metric that matters is total high-quality reps, not whether every set matches.',
+    blocks:[
+      { kind:'list', head:'Warm-up', dur:'5–8 min',
+        items:['Dead hang','Scapular pull-ups','Shoulder circles','1–2 very easy pull-up sets'] },
+      { kind:'moves', head:'Pull-up strength', dur:'Phase A',
+        lead:'Until you can do roughly 7–8 clean reps: 4–5 sets, keeping 1–2 reps in reserve on most of them.',
+        moves:[
+          {b:'A',n:'Bodyweight pull-ups',p:'4–5 sets',rpe:'1–2 RIR'},
+          {b:'B',n:'Assisted pull-ups',p:'2–3 × 6–10',note:'Band or machine. Use the full range of motion.'}
+        ],
+        aside:'If your max is 5, a session might read <b>4 / 4 / 3 / 3 / 3 = 17</b>. Next time you aim for <b>4 / 4 / 4 / 3 / 3 = 18</b>. Chase the total, not set symmetry.' },
+      { kind:'moves', head:'Strength', dur:'',
+        moves:[
+          {b:'A',n:'Bent-over or seated row',p:'3 × 6–10',rpe:'RPE 7–8'},
+          {b:'B',n:'Lat pulldown',p:'2 × 8–12',rpe:'Moderate'},
+          {b:'C',n:'Face pull',p:'2 × 12–15',rpe:'Moderate'},
+          {b:'D',n:'Lateral raise',p:'2 × 10–15',rpe:'Moderate'},
+          {b:'E',n:'Biceps curl',p:'2–3 × 8–12',rpe:'RPE 7–8'}
+        ],
+        aside:'Pick <b>one</b> primary row. A heavy bent-over row and a heavy seated row in the same session is redundant work you\'ll pay for on Day 1.' },
+      { kind:'list', head:'Core', dur:'5 min',
+        note:'Extension and anti-extension — 2 rounds.',
+        items:['Bird dog × 8 / side','Superman or prone swimmer × 8–12','Plank walkout × 5–8','or Long-lever plank × 20–30 sec'] }
+    ]
+  },
+  {
+    n:5, tag:'low', short:'Cardio', title:'Steady-state', em:'cardio',
+    focus:'30–45 minutes at a conversational pace. You should finish feeling like you could have continued.',
+    blocks:[
+      { kind:'list', head:'Choose one', dur:'30–45 min',
+        items:['Incline walk','Bike','Elliptical','Easy run','Stair climber at sustainable effort'] },
+      { kind:'aside-only', head:'Intensity', dur:'',
+        aside:'Easy-to-moderate aerobic work. <b>No need to turn this into HIIT</b> — your sprinting, jumping, lifting and volleyball already supply plenty of high-intensity work.' }
+    ]
+  }
+];
+
+const WEEKS = [
+  { n:1, phase:'build', block:'Block 1', name:'Baseline',
+    note:'Establish your baseline. From here you add either load, reps, or quality — one at a time, never all three at once.',
+    dials:[['Strength','RPE ~7 across the main lifts'],['Pull-ups','Establish a sustainable weekly volume'],['Jumps','Conservative volume'],['Sprints','4 reps']] },
+  { n:2, phase:'build', block:'Block 1', name:'Build',
+    note:'First real progression. Pick one dial per lift and move it slightly.',
+    dials:[['Strength','+1 rep, or a small load increase'],['Pull-ups','+1–3 total weekly reps'],['Jumps','Same volume, higher intent'],['Sprints','4–5 reps']] },
+  { n:3, phase:'build', block:'Block 1', name:'Build',
+    note:'Effort climbs. Volume stays roughly where it was.',
+    dials:[['Strength','RPE 7.5–8'],['Pull-ups','Continue the total-rep progression'],['Jumps','Same volume, high intent'],['Sprints','5–6 reps']] },
+  { n:4, phase:'build', block:'Block 1', name:'Highest training week',
+    note:'The biggest week of the block — and still not a week you take to failure.',
+    dials:[['Strength','RPE ~8'],['Pull-ups','Highest volume of the block'],['Jumps','High quality, not maximal fatigue'],['Sprints','High quality, not maximal fatigue']],
+    aside:'<b>Avoid failure.</b> The point of a peak week is a hard, repeatable week — not a week you need two weeks to recover from.' },
+  { n:5, phase:'deload', block:'Deload', name:'Deload',
+    note:'Cut volume, keep the movements. You should finish this week wanting to train harder.',
+    dials:[['Strength','Cut volume 40–50% — e.g. 4 × 5 squat becomes 2 × 5'],['Jumps & sprints','Cut volume 30–50%'],['Pull-ups','2–3 easy sets per exposure'],['Cardio','Unchanged — stays easy']],
+    aside:'<b>No max testing this week.</b> Testing in a deload is how a deload stops being a deload.' },
+  { n:6, phase:'intensify', block:'Block 2', name:'Establish load',
+    note:'The emphasis shifts from adding pull-up repetitions toward building pulling strength. Which track you take depends on where your reps actually are — not on the calendar.',
+    fork:true, dials:[['Week 6 target','Establish a working load on the weighted triple, or a harder bodyweight session']] },
+  { n:7, phase:'intensify', block:'Block 2', name:'Add weight',
+    note:'If all three weighted triples were crisp, add a small amount of weight. Even a tiny plate changes a pull-up substantially.',
+    fork:true, dials:[['Week 7 target','Add a small amount of weight if 3 × 3 moved cleanly']] },
+  { n:8, phase:'intensify', block:'Block 2', name:'Add weight or a rep',
+    note:'One dial again: either the load goes up, or a rep does. Not both.',
+    fork:true, dials:[['Week 8 target','Add weight, or add a rep']] },
+  { n:9, phase:'intensify', block:'Block 2', name:'Strongest training week',
+    note:'The hardest week of the block, and the last hard week before you taper.',
+    fork:true, dials:[['Week 9 target','Your strongest pulling session of the program']] },
+  { n:10, phase:'taper', block:'Taper', name:'Taper + test',
+    note:'Reduce volume significantly early in the week, then test. See the Test day tab for the full protocol and standards.',
+    dials:[['Early week','Volume down significantly'],['Late week','Test while fresh'],['Priority','Measurement consistency over equipment']] }
+];
+
+const PHASE = {
+  build:     {label:'Build',     cls:''},
+  deload:    {label:'Deload',    cls:'is-deload'},
+  intensify: {label:'Intensify', cls:''},
+  taper:     {label:'Taper',     cls:'is-taper'}
+};
+const TAG = {high:'High', mod:'Moderate', low:'Low'};
+
+// The five things worth measuring twice: before week 1, and in week 10.
+const METRICS = [
+  {k:'pullups',  label:'Max strict pull-ups', unit:'reps', better:'up'},
+  {k:'vertical', label:'Vertical jump',       unit:'in / cm', better:'up'},
+  {k:'approach', label:'Approach jump',       unit:'in / cm', better:'up'},
+  {k:'broad',    label:'Broad jump',          unit:'in / cm', better:'up'},
+  {k:'sprint',   label:'10–20 m sprint',      unit:'sec',     better:'down'}
+];
+
+/* ============================================================
+   STORAGE
+   Durable store when the viewer can run it, a per-device
+   fallback when they can't. Same API either way, so the UI
+   never branches on which one is live.
+   ============================================================ */
+const LS_KEY = 'pp_log_v1';
+
+const storage = {
+  mode:'pending',        // pending | synced | local
+  db:null,
+  cache:{ weeks:{}, tests:{ baseline:{}, final:{} } },
+
+  // Read whatever the fallback holds; safe in private windows.
+  readLocal(){
+    try{
+      const raw = localStorage.getItem(LS_KEY);
+      if(raw) this.cache = JSON.parse(raw);
+    }catch{ /* storage blocked — run from an empty cache */ }
+  },
+  writeLocal(){
+    try{ localStorage.setItem(LS_KEY, JSON.stringify(this.cache)); }
+    catch{ /* non-fatal: the session still shows on screen */ }
+  },
+
+  async init(){
+    this.readLocal();      // paint from whatever is on this device first
+    render.all();
+
+    let db = null;
+    try{ db = await claude.use('db'); }catch{ db = null; }
+
+    if(!db){
+      this.mode = 'local';
+      render.status();
+      return;
+    }
+
+    this.db = db;
+    this.mode = 'synced';
+
+    // One subscription for the ten week documents, one for the tests
+    // document. Never re-subscribed from render.
+    try{
+      db.collection('weeks').onSnapshot(snap => {
+        const next = {};
+        snap.docs.forEach(d => { next[d.id] = d.data() || {}; });
+        this.cache.weeks = next;
+        render.all();
+      }, () => { this.mode = 'local'; render.status(); });
+
+      db.doc('tests/results').onSnapshot(snap => {
+        const d = snap.exists ? (snap.data() || {}) : {};
+        this.cache.tests = { baseline: d.baseline || {}, final: d.final || {} };
+        render.all();
+      }, () => { this.mode = 'local'; render.status(); });
+    }catch{
+      this.mode = 'local';
+    }
+    render.status();
+  },
+
+  week(n){ return this.cache.weeks['w' + n] || {}; },
+
+  // One write per change, awaited, never from render code.
+  async saveWeek(n, patch){
+    const body = Object.assign({}, this.week(n), patch);
+    this.cache.weeks['w' + n] = body;
+    if(this.mode === 'synced' && this.db){
+      try{ await this.db.doc('weeks/w' + n).set(body); }
+      catch(e){ if(e && e.code === 'revoked'){ this.mode = 'local'; render.status(); } this.writeLocal(); }
+    }else{
+      this.writeLocal();
+    }
+  },
+
+  async saveTests(which, key, value){
+    const t = this.cache.tests;
+    t[which] = Object.assign({}, t[which], {[key]: value});
+    if(this.mode === 'synced' && this.db){
+      try{ await this.db.doc('tests/results').set({baseline:t.baseline, final:t.final}); }
+      catch(e){ if(e && e.code === 'revoked'){ this.mode = 'local'; render.status(); } this.writeLocal(); }
+    }else{
+      this.writeLocal();
+    }
+  }
+};
+
+/* ============================================================
+   VIEW STATE — which tab, day and week are open.
+   Per-viewer convenience only, so localStorage is the right home.
+   ============================================================ */
+const prefs = {
+  get(k,f){ try{ const v = localStorage.getItem(k); return v===null?f:v; }catch{ return f; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch{} }
+};
+let activeTab  = prefs.get('pp_tab','week');
+let activeDay  = parseInt(prefs.get('pp_day','1'),10) || 1;
+let activeWeek = parseInt(prefs.get('pp_week','1'),10) || 1;
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// A stable id for one exercise slot: day, block position, badge.
+// Badges restart at A in every block, so the block index is what
+// keeps Day 1's "A" in Power apart from Day 1's "A" in Strength.
+const slotId = (day, bi, badge) => `d${day}-b${bi}-${badge}`;
+
+// The two entry boxes under a prescription. Free text on purpose:
+// real entries look like "BW+5", "135 lb", "4/4/3/3/3" or "28 in",
+// and a number field would reject most of them.
+function entryFields(id, saved){
+  const load = saved.load ?? '', done = saved.done ?? '';
+  return `<div class="move-entry">
+    <div class="entry-f">
+      <label for="${id}-load">Load</label>
+      <input type="text" id="${id}-load" data-slot="${id}" data-f="load"
+             value="${esc(load)}" placeholder="—" inputmode="decimal"
+             class="${load !== '' ? 'has-value' : ''}" autocomplete="off">
+    </div>
+    <div class="entry-f">
+      <label for="${id}-done">Actual</label>
+      <input type="text" id="${id}-done" data-slot="${id}" data-f="done"
+             value="${esc(done)}" placeholder="—"
+             class="${done !== '' ? 'has-value' : ''}" autocomplete="off">
+    </div>
+  </div>`;
+}
+
+// ctx: {day, bi, entries} when the block is being logged against a
+// week; undefined where the block is shown for reference only.
+function renderMoves(b, ctx){
+  const lead = b.lead ? `<p class="aside" style="margin-bottom:14px">${b.lead}</p>` : '';
+  const rows = b.moves.map(m => {
+    let entry = '';
+    if(ctx){
+      const id = slotId(ctx.day, ctx.bi, m.b);
+      entry = entryFields(id, ctx.entries[id] || {});
+    }
+    return `
+    <div class="move">
+      <div class="move-b">${esc(m.b)}</div>
+      <div>
+        <div class="move-n">${esc(m.n)}</div>
+        ${m.note ? `<span class="move-note">${esc(m.note)}</span>` : ''}
+      </div>
+      <div class="move-p">${esc(m.p)}${m.rpe ? `<em>${esc(m.rpe)}</em>` : ''}</div>
+      ${entry}
+    </div>`;
+  }).join('');
+  return lead + `<div class="moves">${rows}</div>` +
+         (b.aside ? `<p class="aside" style="margin-top:16px">${b.aside}</p>` : '');
+}
+function renderList(b){
+  const note = b.note ? `<p class="aside" style="margin-bottom:14px">${esc(b.note)}</p>` : '';
+  return note + `<ul class="list">${b.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>`;
+}
+function renderDose(b){
+  const lead = b.lead ? `<p class="aside" style="margin-bottom:16px">${esc(b.lead)}</p>` : '';
+  const rows = b.rows.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('');
+  return lead + `<div class="dose-wrap"><table class="dose">
+    <caption>Dose by current max</caption>
+    <thead><tr><th>Current max</th><th>Day 2 target</th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
+}
+function renderBlock(b, ctx){
+  let inner = '';
+  if(b.kind === 'moves')           inner = renderMoves(b, ctx);
+  else if(b.kind === 'list')       inner = renderList(b);
+  else if(b.kind === 'dose')       inner = renderDose(b);
+  else if(b.kind === 'aside-only') inner = `<p class="aside">${b.aside}</p>`;
+  return `<div>
+    <div class="block-head">
+      <p class="label">${esc(b.head)}</p>
+      ${b.dur ? `<span class="block-dur">${esc(b.dur)}</span>` : ''}
+    </div>${inner}</div>`;
+}
+
+const FORK_HTML = `
+  <div class="fork">
+    <div class="track is-primary">
+      <span class="track-cond">If you can do ~7–8+ clean reps</span>
+      <h4>Introduce <em>weighted</em> pull-ups</h4>
+      <div class="moves">
+        <div class="move">
+          <div class="move-b">A</div>
+          <div><div class="move-n">Weighted pull-up</div>
+            <span class="move-note">Start very light: +2.5–5 lb / ~1–2.5 kg.</span></div>
+          <div class="move-p">3 × 3</div>
+        </div>
+        <div class="move">
+          <div class="move-b">B</div>
+          <div><div class="move-n">Bodyweight pull-up</div>
+            <span class="move-note">Back-off volume after the weighted work.</span></div>
+          <div class="move-p">2–3 × 5–8</div>
+        </div>
+      </div>
+      <p>Day 4 only. Day 2 stays your easier bodyweight-volume day throughout.</p>
+    </div>
+    <div class="track">
+      <span class="track-cond">If you aren't at 7–8 yet</span>
+      <h4>Stay with <em>bodyweight</em></h4>
+      <p><strong style="color:var(--cream);font-weight:500">Day 2:</strong> easier volume, unchanged.</p>
+      <p><strong style="color:var(--cream);font-weight:500">Day 4:</strong> harder bodyweight work plus assisted back-off sets.</p>
+      <p>Don't force weighted work to stay on schedule. The weighted phase starts when your body is ready for it, not because the calendar says week six.</p>
+    </div>
+  </div>`;
+
+const render = {
+  all(){
+    this.dayStrip(); this.ctxWeekStrip();
+    // Never rebuild the day panel out from under a field being typed
+    // into — an incoming snapshot would otherwise eat the keystroke.
+    const a = document.activeElement;
+    if(!(a && a.closest && a.closest('#day-body'))) this.day();
+    this.weekStrip(); this.week();
+    this.logStrip(); this.logWeek(); this.ledger(); this.tests();
+    this.status();
+  },
+
+  status(){
+    const node = el('log-status'), text = el('log-status-text');
+    node.classList.remove('is-synced','is-local');
+    if(storage.mode === 'synced'){
+      node.classList.add('is-synced');
+      text.textContent = 'Saved to your account';
+    }else if(storage.mode === 'local'){
+      node.classList.add('is-local');
+      text.textContent = 'Saved on this device only';
+    }else{
+      text.textContent = 'Connecting';
+    }
+  },
+
+  /* ---- reference views ---- */
+  dayStrip(){
+    el('day-strip').innerHTML = DAYS.map(d => `
+      <button class="chip" role="tab" data-day="${d.n}" aria-selected="${d.n === activeDay}">
+        <span class="chip-n">D${d.n}</span><span class="chip-t">${TAG[d.tag]}</span>
+      </button>`).join('');
+  },
+  ctxWeekStrip(){
+    el('ctx-week-strip').innerHTML = WEEKS.map(w => {
+      const p = PHASE[w.phase];
+      return `<button class="chip ${p.cls}" role="tab" data-ctxweek="${w.n}" aria-selected="${w.n === activeWeek}">
+        <span class="chip-n">${String(w.n).padStart(2,'0')}</span><span class="chip-t">${p.label}</span>
+      </button>`;
+    }).join('');
+  },
+
+  day(){
+    const d = DAYS.find(x => x.n === activeDay) || DAYS[0];
+    const w = WEEKS.find(x => x.n === activeWeek) || WEEKS[0];
+    const rec = storage.week(activeWeek);
+    const entries = rec.entries || {};
+    const isDone = !!(rec.days || {})[d.n];
+
+    el('day-meta').innerHTML =
+      `<span>Week <b>${w.n}</b></span><span>Day <b>${d.n}</b> of 5</span>` +
+      `<span>Focus &middot; <b>${esc(d.short)}</b></span><span>Output &middot; <b>${TAG[d.tag]}</b></span>`;
+
+    el('day-body').innerHTML = `
+      <div class="session-head">
+        <h3>${esc(d.title)} <em>${esc(d.em)}</em></h3>
+        <span class="pill is-${d.tag}">${TAG[d.tag]}</span>
+      </div>
+      <p class="session-focus">${esc(d.focus)}</p>
+      <div style="margin-bottom:24px">
+        <button class="done-btn" id="day-done" type="button" aria-pressed="${isDone}">
+          <span class="tick" aria-hidden="true">&#10003;</span>
+          ${isDone ? `Week ${w.n}, Day ${d.n} done` : `Mark Day ${d.n} done`}
+        </button>
+      </div>
+      <div class="blocks">${
+        d.blocks.map((b, bi) => renderBlock(b, b.kind === 'moves' ? {day:d.n, bi, entries} : undefined)).join('')
+      }</div>`;
+  },
+
+  weekStrip(){
+    el('week-strip').innerHTML = WEEKS.map(w => {
+      const p = PHASE[w.phase];
+      return `<button class="chip ${p.cls}" role="tab" data-week="${w.n}" aria-selected="${w.n === activeWeek}">
+        <span class="chip-n">${String(w.n).padStart(2,'0')}</span><span class="chip-t">${p.label}</span>
+      </button>`;
+    }).join('');
+  },
+  week(){
+    const w = WEEKS.find(x => x.n === activeWeek) || WEEKS[0];
+    const p = PHASE[w.phase];
+    el('week-meta').innerHTML =
+      `<span>Week <b>${w.n}</b> of 10</span><span>${esc(w.block)}</span><span>Phase &middot; <b>${p.label}</b></span>`;
+    const dials = w.dials.map(d => `
+      <div class="dial"><div class="dial-k">${esc(d[0])}</div><div class="dial-v">${esc(d[1])}</div></div>`).join('');
+    el('week-body').innerHTML = `
+      <div class="session-head">
+        <h3>Week ${w.n} &mdash; <em>${esc(w.name.toLowerCase())}</em></h3>
+        <span class="pill is-${w.phase === 'deload' ? 'low' : w.phase === 'build' ? 'mod' : 'high'}">${p.label}</span>
+      </div>
+      <p class="week-note">${esc(w.note)}</p>
+      <div class="dials">${dials}</div>
+      ${w.aside ? `<p class="aside" style="margin-bottom:24px">${w.aside}</p>` : ''}
+      ${w.fork ? FORK_HTML : ''}`;
+  },
+
+  /* ---- log ---- */
+  logStrip(){
+    el('log-strip').innerHTML = WEEKS.map(w => {
+      const p = PHASE[w.phase];
+      const rec = storage.week(w.n);
+      const days = rec.days || {};
+      const allDone = DAYS.every(d => days[d.n]);
+      return `<button class="chip ${p.cls} ${allDone ? 'is-done' : ''}" role="tab" data-logweek="${w.n}"
+                aria-selected="${w.n === activeWeek}">
+        <span class="chip-n">${String(w.n).padStart(2,'0')}</span><span class="chip-t">${p.label}</span>
+      </button>`;
+    }).join('');
+  },
+
+  logWeek(){
+    const w = WEEKS.find(x => x.n === activeWeek) || WEEKS[0];
+    const rec = storage.week(w.n);
+    const days = rec.days || {};
+
+    el('log-week-name').textContent = 'week ' + w.n;
+
+    el('log-sessions').innerHTML = DAYS.map(d => `
+      <button class="sess" data-sess="${d.n}" aria-pressed="${!!days[d.n]}"
+              aria-label="Day ${d.n}, ${esc(d.short)}${days[d.n] ? ', done' : ''}">
+        <span class="sess-mark" aria-hidden="true">&#10003;</span>
+        <span class="sess-d">D${d.n}</span>
+        <span class="sess-t">${esc(d.short)}</span>
+      </button>`).join('');
+
+    // Inputs are not re-rendered from state while focused, so typing
+    // is never interrupted by an incoming snapshot.
+    const d2 = el('pu-d2'), d4 = el('pu-d4'), note = el('wk-note');
+    if(document.activeElement !== d2)   d2.value   = rec.puD2 ?? '';
+    if(document.activeElement !== d4)   d4.value   = rec.puD4 ?? '';
+    if(document.activeElement !== note) note.value = rec.note ?? '';
+  },
+
+  ledger(){
+    const totals = WEEKS.map(w => {
+      const r = storage.week(w.n);
+      const a = Number(r.puD2), b = Number(r.puD4);
+      const has = (r.puD2 !== undefined && r.puD2 !== '') || (r.puD4 !== undefined && r.puD4 !== '');
+      return has ? (isFinite(a) ? a : 0) + (isFinite(b) ? b : 0) : null;
+    });
+
+    el('ledger').innerHTML = WEEKS.map((w, i) => {
+      const t = totals[i];
+      // Compare against the most recent week that actually has a number.
+      let prev = null;
+      for(let j = i - 1; j >= 0; j--){ if(totals[j] !== null){ prev = totals[j]; break; } }
+
+      let delta = '<span class="led-delta none">&nbsp;</span>';
+      if(t !== null && prev !== null){
+        const diff = t - prev;
+        const cls = diff > 0 ? 'up' : diff < 0 ? 'down' : 'flat';
+        const sign = diff > 0 ? '+' : '';
+        delta = `<span class="led-delta ${cls}">${sign}${diff}</span>`;
+      }
+      const total = t === null
+        ? '<span class="led-total is-empty">—</span>'
+        : `<span class="led-total">${t}</span>`;
+
+      return `<div class="led ${w.n === activeWeek ? 'is-current' : ''}">
+        <span class="led-w">Week ${String(w.n).padStart(2,'0')}</span>
+        <span class="led-phase">${esc(w.name)}</span>
+        ${total}${delta}
+      </div>`;
+    }).join('');
+  },
+
+  tests(){
+    const t = storage.tests || storage.cache.tests;
+    ['baseline','final'].forEach(which => {
+      const host = el('ba-' + which);
+      const vals = storage.cache.tests[which] || {};
+      const focused = document.activeElement;
+      host.innerHTML = METRICS.map(m => `
+        <div class="ba-row">
+          <label for="${which}-${m.k}">${esc(m.label)}<span class="unit">${esc(m.unit)}</span></label>
+          <input type="number" step="0.1" id="${which}-${m.k}" data-test="${which}" data-metric="${m.k}"
+                 value="${vals[m.k] ?? ''}" placeholder="—" inputmode="decimal">
+        </div>`).join('');
+      // restore focus if a field in this column was being typed into
+      if(focused && focused.dataset && focused.dataset.test === which){
+        const again = el(which + '-' + focused.dataset.metric);
+        if(again){ again.value = focused.value; again.focus(); }
+      }
+    });
+
+    const b = storage.cache.tests.baseline || {}, f = storage.cache.tests.final || {};
+    const rows = METRICS.map(m => {
+      const bv = Number(b[m.k]), fv = Number(f[m.k]);
+      if(!isFinite(bv) || !isFinite(fv) || b[m.k] === '' || f[m.k] === '' ||
+         b[m.k] === undefined || f[m.k] === undefined) return '';
+      const diff = +(fv - bv).toFixed(2);
+      const improved = m.better === 'up' ? diff > 0 : diff < 0;
+      const sign = diff > 0 ? '+' : '';
+      return `<div class="res">
+        <span class="res-k">${esc(m.label)}</span>
+        <span class="res-v ${improved ? 'up' : ''}">${sign}${diff} ${esc(m.unit.split(' / ')[0])}</span>
+      </div>`;
+    }).filter(Boolean).join('');
+
+    el('ba-results').innerHTML = rows ||
+      `<p class="panel-sub" style="margin:0">Fill in both columns for a metric and the change shows up here.</p>`;
+  }
+};
+
+/* ============================================================
+   WIRING
+   ============================================================ */
+const TABS = [
+  {key:'week', tab:'tab-week', view:'view-week'},
+  {key:'plan', tab:'tab-plan', view:'view-plan'},
+  {key:'log',  tab:'tab-log',  view:'view-log'},
+  {key:'test', tab:'tab-test', view:'view-test'}
+];
+function setTab(key){
+  activeTab = key; prefs.set('pp_tab', key);
+  TABS.forEach(t => {
+    const on = t.key === key;
+    el(t.tab).setAttribute('aria-selected', String(on));
+    el(t.view).hidden = !on;
+  });
+}
+TABS.forEach(t => el(t.tab).addEventListener('click', () => setTab(t.key)));
+
+el('day-strip').addEventListener('click', e => {
+  const btn = e.target.closest('[data-day]'); if(!btn) return;
+  activeDay = parseInt(btn.dataset.day, 10);
+  prefs.set('pp_day', String(activeDay));
+  render.dayStrip(); render.day();
+});
+
+function selectWeek(n){
+  activeWeek = n; prefs.set('pp_week', String(n));
+  render.weekStrip(); render.week();
+  render.ctxWeekStrip(); render.day();     // day entries belong to a week
+  render.logStrip(); render.logWeek(); render.ledger();
+}
+el('ctx-week-strip').addEventListener('click', e => {
+  const btn = e.target.closest('[data-ctxweek]'); if(!btn) return;
+  selectWeek(parseInt(btn.dataset.ctxweek, 10));
+});
+
+// Per-exercise load and actual reps. Saved on change/blur, so a
+// session's worth of typing is a handful of writes, not hundreds.
+el('day-body').addEventListener('change', async e => {
+  const t = e.target;
+  if(!t.dataset || !t.dataset.slot) return;
+  const raw = t.value.trim();
+  t.classList.toggle('has-value', raw !== '');
+  const rec = storage.week(activeWeek);
+  const entries = Object.assign({}, rec.entries || {});
+  const slot = Object.assign({}, entries[t.dataset.slot] || {});
+  if(raw === '') delete slot[t.dataset.f]; else slot[t.dataset.f] = raw;
+  if(Object.keys(slot).length) entries[t.dataset.slot] = slot;
+  else delete entries[t.dataset.slot];
+  await storage.saveWeek(activeWeek, {entries});
+});
+
+// Mark the open session done without leaving it.
+el('day-body').addEventListener('click', async e => {
+  const btn = e.target.closest('#day-done'); if(!btn) return;
+  const rec = storage.week(activeWeek);
+  const days = Object.assign({}, rec.days || {});
+  if(days[activeDay]) delete days[activeDay]; else days[activeDay] = true;
+  await storage.saveWeek(activeWeek, {days});
+  render.day(); render.logStrip(); render.logWeek();
+});
+el('week-strip').addEventListener('click', e => {
+  const btn = e.target.closest('[data-week]'); if(!btn) return;
+  selectWeek(parseInt(btn.dataset.week, 10));
+});
+el('log-strip').addEventListener('click', e => {
+  const btn = e.target.closest('[data-logweek]'); if(!btn) return;
+  selectWeek(parseInt(btn.dataset.logweek, 10));
+});
+
+// Session done / not done — one write per tap.
+el('log-sessions').addEventListener('click', async e => {
+  const btn = e.target.closest('[data-sess]'); if(!btn) return;
+  const dayN = btn.dataset.sess;
+  const rec = storage.week(activeWeek);
+  const days = Object.assign({}, rec.days || {});
+  if(days[dayN]) delete days[dayN]; else days[dayN] = true;
+  btn.setAttribute('aria-pressed', String(!!days[dayN]));   // instant feedback
+  await storage.saveWeek(activeWeek, {days});
+  render.logStrip();
+});
+
+// Pull-up totals and the note — written on change/blur, not per keystroke.
+function bindWeekField(id, key){
+  el(id).addEventListener('change', async e => {
+    const raw = e.target.value.trim();
+    await storage.saveWeek(activeWeek, {[key]: raw === '' ? '' : raw});
+    render.ledger(); render.logStrip();
+  });
+}
+bindWeekField('pu-d2','puD2');
+bindWeekField('pu-d4','puD4');
+bindWeekField('wk-note','note');
+
+// Baseline / test fields are delegated, since they are re-rendered.
+document.addEventListener('change', async e => {
+  const t = e.target;
+  if(!t.dataset || !t.dataset.test) return;
+  await storage.saveTests(t.dataset.test, t.dataset.metric, t.value.trim());
+  render.tests();
+});
+
+/* ============================================================
+   EXPORT / IMPORT
+   The whole log is one small JSON file: how it moves between
+   your phone and your laptop, and how you keep a copy that
+   survives clearing the browser.
+   ============================================================ */
+el('btn-export').addEventListener('click', () => {
+  const payload = {
+    format: 'pull-and-power/v1',
+    exported: new Date().toISOString(),
+    weeks: storage.cache.weeks,
+    tests: storage.cache.tests
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'pull-and-power-' + new Date().toISOString().slice(0,10) + '.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+el('btn-import').addEventListener('click', () => el('file-import').click());
+
+el('file-import').addEventListener('change', async e => {
+  const file = e.target.files && e.target.files[0];
+  if(!file) return;
+  try{
+    const parsed = JSON.parse(await file.text());
+    if(!parsed || parsed.format !== 'pull-and-power/v1'){
+      alert('That file is not a Pull & Power export.');
+      return;
+    }
+    const ok = confirm('Replace the log currently on this device with the file\'s contents?');
+    if(!ok) return;
+    storage.cache.weeks = parsed.weeks || {};
+    storage.cache.tests = {
+      baseline: (parsed.tests && parsed.tests.baseline) || {},
+      final:    (parsed.tests && parsed.tests.final)    || {}
+    };
+    storage.writeLocal();
+    render.all();
+  }catch{
+    alert('That file could not be read.');
+  }finally{
+    e.target.value = '';
+  }
+});
+
+/* ---- first paint, then connect ---- */
+render.all();
+setTab(activeTab);
+storage.init();
+</script>
+</body>
+</html>
